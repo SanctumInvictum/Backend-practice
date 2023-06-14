@@ -6,3 +6,6 @@ app = FastAPI()
 @app.get("/")
 def get_hello():
     return "Hello world!"
+
+# запуск
+# uvicorn main:app --reload
