@@ -7,5 +7,20 @@ app = FastAPI()
 def get_hello():
     return "Hello world!"
 
-# запуск
-# uvicorn main:app --reload
+
+@app.post("/upload/file")
+def upload_file(file: UploadFile):
+    pass
+
+
+@app.get("/check/{file_id}")
+def check_state(file_id: str):
+    pass
+
+@app.get("/download/{file_id}")
+def download_file(file_id: str):
+
+
+"""
+uvicorn main:app --reload
+"""
