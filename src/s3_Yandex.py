@@ -16,10 +16,17 @@ def upload(file, object_name):
     os.upload_fileobj(file, file_bucket, object_name)
 
 
-def download(object_name):
-    os.download_file(file_bucket, object_name, object_name)
+def download(file_name, object_name):
+    os.download_file(file_bucket, file_name, object_name)
+
+
+def get_object(path):
+    get_object_response = os.get_object(Bucket=file_bucket, Key=path)
+    return get_object_response['Body'].read()
 
 
 def delete(bucket_name, object_name):
     os.delete_object(Bucket=bucket_name, Key=object_name)
 
+
+print(get_object('download/{}'.format('Направления.pdf')))
