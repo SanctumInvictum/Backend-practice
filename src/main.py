@@ -4,12 +4,13 @@ from models import states
 from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 from DataBase import get_async_session
+from Converter.converter import router
 import uuid
 
 # Создаем экземляр приложения
 app = FastAPI()
 
-
+app.include_router(router)
 # Эндпоинт с POST-запросом для прикрепления файла
 @app.post("/file/upload-file")
 async def upload_file(file: UploadFile, final_ext: str, session: AsyncSession = Depends(get_async_session)):

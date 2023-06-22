@@ -29,4 +29,4 @@ def delete(bucket_name, object_name):
     os.delete_object(Bucket=bucket_name, Key=object_name)
 
 
-print(get_object('download/{}'.format('Направления.pdf')))
+# print(get_object('download/{}'.format('Направления.pdf')))
